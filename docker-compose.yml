@@ -1,0 +1,38 @@
+services:
+  postgres:
+    image: postgres:15
+    container_name: onlyfoils-postgres
+    restart: unless-stopped
+
+    environment:
+      POSTGRES_DB: onlyfoils
+      POSTGRES_USER: onlyfoils
+      POSTGRES_PASSWORD: onlyfoils
+
+    ports:
+      - "5432:5432"
+
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U onlyfoils"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  app:
+    build: .
+    container_name: onlyfoils-app
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+    ports:
+      - "8080:8080"
+
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+
+volumes:
+  postgres_data:
