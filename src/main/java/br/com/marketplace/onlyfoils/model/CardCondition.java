@@ -1,10 +1,9 @@
 package br.com.marketplace.onlyfoils.model;
 
 public enum CardCondition {
-    MINT,
-    NEAR_MINT,
-    EXCELLENT,
-    GOOD,
-    PLAYED,
-    POOR
+    NM,
+    LP,
+    MP,
+    HP,
+    DMG
 }
