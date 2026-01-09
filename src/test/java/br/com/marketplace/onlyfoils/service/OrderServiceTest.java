@@ -1,7 +1,6 @@
 package br.com.marketplace.onlyfoils.service;
 
 import br.com.marketplace.onlyfoils.model.*;
-import br.com.marketplace.onlyfoils.repository.ListingRepository;
 import br.com.marketplace.onlyfoils.repository.OrderItemRepository;
 import br.com.marketplace.onlyfoils.repository.OrderRepository;
 import br.com.marketplace.onlyfoils.service.impl.OrderServiceImpl;
@@ -15,8 +14,6 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import java.math.BigDecimal;
 import java.util.Optional;
 
-import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.any;
